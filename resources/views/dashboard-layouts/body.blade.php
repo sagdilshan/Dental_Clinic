@@ -154,7 +154,7 @@
 
         });
     </script>
-    <script>
+    {{-- <script>
         $(function() {
             $(document).on('click', '#delete', function(e) {
                 e.preventDefault();
@@ -183,6 +183,35 @@
 
             });
 
+        });
+    </script> --}}
+
+    <script>
+        $(function() {
+            $(document).on('click', '#delete', function(e) {
+                e.preventDefault();
+                var id = $(this).data('id'); // Get the ID from the data attribute
+                var form = $('#delete-form-' + id); // Select the form by ID
+
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Confirm'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        form.submit(); // Submit the form
+                        Swal.fire(
+                            'Deleted!',
+                            'Your data has been deleted.',
+                            'success'
+                        )
+                    }
+                });
+            });
         });
     </script>
 
