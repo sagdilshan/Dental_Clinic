@@ -94,10 +94,10 @@
                                             </div>
 
                                             <div class="form-group row">
-                                                <label class="col-sm-2 col-form-label">Compain</label>
+                                                <label class="col-sm-2 col-form-label">Complain</label>
                                                 <div class="col-sm-10">
                                                     <textarea rows="2" class="form-control @error('complain') is-invalid @enderror" name="complain"
-                                                        placeholder="Compain"></textarea>
+                                                        placeholder="Complain"></textarea>
                                                     @error('complain')
                                                         <div class="invalid-feedback">
                                                             {{ $message }}
