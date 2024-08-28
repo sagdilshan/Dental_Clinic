@@ -76,37 +76,52 @@
 
 
                                         @foreach ($allpatients as $key => $item)
-                                        <tr>
-                                            <td>{{ $key + 1 }}</td>
+                                            <tr>
+                                                <td>{{ $key + 1 }}</td>
 
 
-                                            <td>{{ $item->patient_name }}</td>
-                                            <td>{{ $item->mobile }}</td>
-                                            <td>{{ $item->age }}</td>
-                                            <td>{{ $item->date_visit }}</td>
-                                            <td>{{ $item->complain }}</td>
-                                            <td>{{ $item->investigation }}</td>
-                                            <td>{{ $item->treatments }}</td>
-                                            <td>{{ $item->charges }}</td>
+                                                <td>{{ $item->patient_name }}</td>
+                                                <td>{{ $item->mobile }}</td>
+                                                <td>{{ $item->age }}</td>
+                                                <td>{{ $item->date_visit }}</td>
+                                                <td>{{ $item->complain }}</td>
+                                                <td>{{ $item->investigation }}</td>
+                                                <td>{{ $item->treatments }}</td>
+                                                <td>{{ $item->charges }}</td>
 
 
-                                            <td>
-                                                <div style="display: flex; align-items: center; gap: 10px;">
-                                                    <a href="{{ route('edit.patient', $item->id) }}" class="btn btn-outline-success">Edit</a>
+                                                <td>
+                                                    <div style="display: flex; align-items: center; gap: 10px;">
+                                                        <a href="{{ route('edit.patient', $item->id) }}"
+                                                            class="btn btn-outline-success">Edit</a>
 
-                                                    @if ($item->deleted == 'no')
-                                                            <form method="POST" action="{{ route('remove.patient', $item->id) }}">
+                                                        {{-- @if ($item->deleted == 'no')
+                                                            <form method="POST"
+                                                                action="{{ route('remove.patient', $item->id) }}">
                                                                 @csrf
                                                                 @method('PUT')
-                                                                <button type="submit" class="btn btn-outline-danger">Delete</button>
+                                                                <button type="button" class="btn btn-outline-danger"
+                                                                    id="delete">Delete</button>
+                                                            </form>
+                                                        @endif --}}
+
+                                                        @if ($item->deleted == 'no')
+                                                            <form method="POST"
+                                                                action="{{ route('remove.patient', $item->id) }}"
+                                                                id="delete-form-{{ $item->id }}">
+                                                                @csrf
+                                                                @method('PUT')
+                                                                <button type="button" class="btn btn-outline-danger"
+                                                                    id="delete"
+                                                                    data-id="{{ $item->id }}">Delete</button>
                                                             </form>
                                                         @endif
-                                                </div>
-                                            </td>
+                                                    </div>
+                                                </td>
 
 
-                                        </tr>
-                                    @endforeach
+                                            </tr>
+                                        @endforeach
 
 
                                         </tfoot>
