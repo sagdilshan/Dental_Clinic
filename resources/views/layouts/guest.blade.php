@@ -5,8 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        {{-- <title>{{ config('app.name', 'Real Estate') }}</title> --}}
-        <title>Real Estate</title>
+        {{-- <title>{{ config('app.name', 'Dental Clinic') }}</title> --}}
+        <title>Dental Clinic</title>
 
 
         <!-- Fonts -->
