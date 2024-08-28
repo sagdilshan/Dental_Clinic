@@ -38,7 +38,14 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::get('/admin-dashboard', 'AdminDashboard')->name('admin.dashboard');
         Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
 
+        Route::get('/add-patient', 'AddPatient')->name('add.patient');
+        Route::post('/admin/store/patient', 'AdminStorePatients')->name('store.patient');
+        Route::get('admin/edit/patient/{id}', 'EditPatient')->name('edit.patient');
+        Route::post('admin/update/patient/{id}', 'UpdatePatient')->name('update.patient');
+        Route::put('/admin/remove/patient/{id}', 'RemovePatient')->name('remove.patient');
 
     });
 
 }); // end group admin middlewere
+
+
