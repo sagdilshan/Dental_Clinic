@@ -5,8 +5,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>@yield('pageTitle') - Real Estate</title>
-    <link rel="icon" href="../assets/dist/img/woodify-fav.png" />
+    <title>@yield('pageTitle') - Dental Clinic</title>
+    <link rel="icon" href="../assets/dist/img/Dental-fav.png" />
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet"
