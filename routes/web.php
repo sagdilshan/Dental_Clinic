@@ -23,11 +23,11 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 require __DIR__.'/auth.php';
 
@@ -36,7 +36,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(AdminController::class)->group(function () {
 
         Route::get('/admin-dashboard', 'AdminDashboard')->name('admin.dashboard');
-        Route::get('/admin/logout', [AdminController::class, 'AdminLogout'])->name('admin.logout');
+        Route::get('/admin/logout', action: [AdminController::class, 'AdminLogout'])->name('admin.logout');
 
         Route::get('/add-patient', 'AddPatient')->name('add.patient');
         Route::post('/admin/store/patient', 'AdminStorePatients')->name('store.patient');
@@ -44,7 +44,12 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
         Route::post('admin/update/patient/{id}', 'UpdatePatient')->name('update.patient');
         Route::put('/admin/remove/patient/{id}', 'RemovePatient')->name('remove.patient');
 
+
+
     });
+
+    // Route::get('/user-profile', action: [ProfileController::class, 'UserProfile'])->name('user.profile');
+
 
 }); // end group admin middlewere
 
