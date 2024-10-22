@@ -57,4 +57,10 @@ class ProfileController extends Controller
 
         return Redirect::to('/');
     }
+
+    // public function UserProfile()
+    // {
+    //     return view('website-pages.profile');
+
+    // }
 }
